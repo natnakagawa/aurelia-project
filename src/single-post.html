@@ -1,0 +1,14 @@
+<template>
+    <div class="container">
+        <div class="row">
+            <div repeat.for="post of posts" class="col-xs-4" style="height:400px;">
+                <a click.delegate="$parent.select(post)" href.bind="['/post/' + post.ID]">
+                    <h4>${post.title}</h4>
+                    <div style="width:100%; height:300px;">
+                        <div style="background-image: url(${post.content.feature.src}); background-size: cover; height: 100%;"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
