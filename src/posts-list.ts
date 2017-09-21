@@ -2,9 +2,9 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {autoinject} from 'aurelia-framework';
 
 @autoinject()
-export class SinglePost {
+export class PostsList {
     private apiUrl= 'https://wp.kit.se/wp-json';
-    private post: any;
+    private posts: any;
     private selectedId = 0;
     heading="Posts";
 
@@ -13,10 +13,10 @@ export class SinglePost {
 
     created () {
         let client = new HttpClient();
-        client.fetch(`${this.apiUrl}/discovery?job_types=article&limit=1&offset=0&exclude_native=true`)
+        client.fetch(`${this.apiUrl}/discovery?job_types=article&limit=9&offset=1&exclude_native=true`)
             .then(response => response.json())
             .then(data => {
-                this.post = data[0];
+                this.posts = data;
             });
     }
 

@@ -1,10 +1,10 @@
 <template>
         <div class="row">
-            <div class="col-xs-12">
+            <div repeat.for="post of posts" class="col-xs-4" style="height:400px;">
                 <a route-href="route: post-detail; params.bind: {id:post.ID}" click.delegate="$parent.select(post)">
                     <h4>${post.title}</h4>
-                    <div style="width:100%; height:100%;">
-                        <div style="background-image: url(${post.content.feature.src}); background-size: cover; height: 500px;"></div>
+                    <div style="width:100%; height:300px;">
+                        <div style="background-image: url(${post.content.feature.src}); background-size: cover; height: 100%;"></div>
                     </div>
                 </a>
             </div>
